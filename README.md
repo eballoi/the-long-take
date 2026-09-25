@@ -30,6 +30,19 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
+## Security & privacy
+
+- No backend, forms, cookies, tracking or analytics.
+- Three.js is pinned with Subresource Integrity, so an altered copy on the CDN would be refused.
+- A strict Content-Security-Policy only allows the page's own inline script (pinned by hash), that exact Three.js file and Google Fonts, and blocks every network request after load.
+- The contact email is assembled at runtime, so it never appears as plain text in the HTML.
+
+After editing the inline script, refresh its CSP hash:
+
+```bash
+python3 tools/update-csp.py
+```
+
 ## Contact
 
-Edoardo Balloi · Italy · remote · edoardo.balloi@gmail.com · [LinkedIn](https://www.linkedin.com/in/edoardo-balloi/)
+Edoardo Balloi · Italy · remote · edoardo.balloi [at] gmail [dot] com · [LinkedIn](https://www.linkedin.com/in/edoardo-balloi/)
